@@ -80,6 +80,34 @@ $(document).ready(function(){
         })
     });
 
+    //scrollbar
+    new SimpleBar(document.getElementById('scroll-list-of-weapons'), {
+        autoHide: false,
+
+      });
+
+    
+    //slick 1
+
+    $('.list-of-categories').slick({
+        arrows: false,
+        infinite: false,
+        adaptiveHeight: false,
+        speed: 300,
+        slidesToShow: 5,
+        vertical: false,
+        focusOnSelect: false,
+    });
+    let firstSlider = $('.list-of-categories');
+    firstSlider.mousewheel(function(e) {
+        e.preventDefault();
+      
+        if (e.deltaY < 0) {
+          $(this).slick('slickNext');
+        } else {
+          $(this).slick('slickPrev');
+        }
+      });
 
 
     //to top

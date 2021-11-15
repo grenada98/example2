@@ -682,19 +682,36 @@ body {
   display: -ms-flexbox;
   display: flex;
   margin-top: 80px;
+  min-width: 0;
 }
 
 .list-of-categories {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
+  margin-right: -10px;
   list-style: none;
   padding-left: 0;
+  min-width: 0;
+}
+
+.list-of-categories .slick-track {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .category {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   max-width: 312px;
-  width: 100%;
+  width: 312px;
   margin-right: 30px;
   cursor: pointer;
 }
@@ -709,6 +726,10 @@ body {
   color: #FFFFFF;
   line-height: 40px;
   margin-top: 20px;
+}
+
+.container-in-2-wrapper {
+  width: 100%;
 }
 
 .container-in-2 {
@@ -906,7 +927,7 @@ body {
 }
 
 .block-of-categories-of-weapons {
-  max-width: 1840px;
+  max-width: 1878px;
   width: 100%;
   margin: 0 auto;
   display: -webkit-box;
@@ -1060,26 +1081,33 @@ body {
           flex-direction: row;
   overflow-x: auto;
   padding-top: 15px;
+  padding-bottom: 40px;
 }
 
-.list-of-weapons[data-simplebar] {
-  -webkit-box-orient: horizontal !important;
-  -webkit-box-direction: normal !important;
-      -ms-flex-direction: row !important;
-          flex-direction: row !important;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+.simplebar-track.simplebar-horizontal {
+  width: 65%;
+  margin: auto;
+  background-color: rgba(0, 0, 255, 0.1);
+  height: 4px;
+  border-radius: 3px;
 }
 
-.simplebar-content-wrapper {
+.simplebar-track.simplebar-horizontal .simplebar-scrollbar {
+  opacity: 1;
+  top: 0;
+}
+
+.simplebar-track.simplebar-horizontal .simplebar-scrollbar::before {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  opacity: 1;
+  background-color: #000;
+  height: 4px;
+}
+
+.simplebar-content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
