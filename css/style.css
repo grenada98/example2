@@ -696,6 +696,10 @@ body {
   min-width: 0;
 }
 
+.list-of-categories .slick-list {
+  width: 100%;
+}
+
 .list-of-categories .slick-track {
   display: -webkit-box;
   display: -ms-flexbox;

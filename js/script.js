@@ -95,19 +95,8 @@ $(document).ready(function(){
         adaptiveHeight: false,
         speed: 300,
         slidesToShow: 5,
-        vertical: false,
-        focusOnSelect: false,
     });
     let firstSlider = $('.list-of-categories');
-    firstSlider.mousewheel(function(e) {
-        e.preventDefault();
-      
-        if (e.deltaY < 0) {
-          $(this).slick('slickNext');
-        } else {
-          $(this).slick('slickPrev');
-        }
-      });
 
 
     //to top
