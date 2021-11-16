@@ -493,6 +493,7 @@ body {
   border: none;
   padding: 19px 150px 20px 20px;
   border-radius: 10px;
+  width: 100%;
 }
 
 .input-button {
@@ -2509,6 +2510,36 @@ body {
   .footer {
     padding-right: calc(8px + 32 * (100vw - 320px) / 1200);
     padding-left: calc(8px + 32 * (100vw - 320px) / 1200);
+  }
+}
+
+@media (max-width: 1450px) {
+  .logo {
+    width: 10%;
+  }
+
+  .header-navigation {
+    width: 60%;
+  }
+
+  .localization-enter {
+    width: 30%;
+  }
+
+  .enter-link {
+    margin-left: 10px;
+  }
+
+  .icon-catalog-div {
+    padding-right: calc(30px + 32 * (100vw - 320px) / 1200);
+  }
+
+  .input-search {
+    width: 40%;
+  }
+
+  .equal-like-basket {
+    width: 20%;
   }
 }
 
