@@ -70,6 +70,30 @@ $(document).ready(function(){
         console.log( valueBasket);
     });
 
+    //mobile menu
+    let mobileMenu = 0;
+    $('.mobile-catalog-div').on("click", function(event){
+        if(mobileMenu==1){
+            mobileMenu = 0;
+        }
+        else{
+        mobileMenu = 1;
+        }
+        console.log(mobileMenu);
+        if(mobileMenu==1){
+            $('.burger').addClass('active');
+            document.querySelector('.mobile-menu-header').style.transform = 'translateX(320px)';
+            document.querySelector('.main-disabled').style.width = '100%';
+            document.querySelector('html').style.overflow = 'hidden';
+        }
+        else{
+            $('.burger').removeClass('active');
+            document.querySelector('.mobile-menu-header').style.transform = 'translateX(-320px)';
+            document.querySelector('.main-disabled').style.width = '0';
+            document.querySelector('html').style.overflow = '';
+        }
+    });
+
     //rate
     const ratingItemsList = document.querySelectorAll('.star');
     const ratingItemsArray = Array.prototype.slice.call(ratingItemsList);
@@ -95,6 +119,26 @@ $(document).ready(function(){
         adaptiveHeight: false,
         speed: 300,
         slidesToShow: 5,
+        responsive:[
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1
+                }
+            },
+            {
+                breakpoint: 1055,
+                settings: {
+                    slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 1230,
+                settings: {
+                    slidesToShow: 5
+                }
+            }
+        ]
     });
     let firstSlider = $('.list-of-categories');
 
