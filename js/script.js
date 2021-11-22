@@ -1,5 +1,5 @@
-
 $(document).ready(function(){
+
     $(".header-menu-link").on("click", function(){
         $(".header-menu-link").removeClass("active");
         $(".header-menu-link-a").removeClass("active");
@@ -63,34 +63,71 @@ $(document).ready(function(){
 
 
     //basket
-    let valueBasket = document.getElementById("basket-count-id").innerHTML;
-    $('.buy-span').on("click", function(event){
-        valueBasket =Number(valueBasket)+1;
-        document.getElementById("basket-count-id").textContent=valueBasket;
-        console.log( valueBasket);
-    });
+    const basketIcon =document.getElementById('basket-count-id');
+    const buyButton =document.getElementsByClassName('buy-span');
+    buyButton.forEach(function(el) {el.addEventListener('click', function (){
+        basketIcon.textContent=+basketIcon.innerHTML+1;
+    })})
 
     //mobile menu
-    let mobileMenu = 0;
+    const burgerIcon = document.getElementsByClassName('burger');
+    const mainDisabled=document.getElementsByClassName('main-disabled');
+    const mobileMenu = document.getElementsByClassName('mobile-menu-header');
+    const htmlTag = document.getElementsByTagName('html');
+    console.log(mainDisabled);
     $('.mobile-catalog-div').on("click", function(event){
-        if(mobileMenu==1){
-            mobileMenu = 0;
+        console.log($('.burger').hasClass('active'));
+        if($('.burger').hasClass('active')==false){
+            burgerIcon[0].classList.add('active');
+            console.log(burgerIcon[0]);
+            mobileMenu[0].classList.add('active');
+            mainDisabled[0].classList.add('active');
+            htmlTag[0].classList.add('disabled');
         }
         else{
-        mobileMenu = 1;
+            burgerIcon[0].classList.remove('active');
+            mobileMenu[0].classList.remove('active');
+            mainDisabled[0].classList.remove('active');
+            htmlTag[0].classList.remove('disabled');
         }
-        console.log(mobileMenu);
-        if(mobileMenu==1){
-            $('.burger').addClass('active');
-            document.querySelector('.mobile-menu-header').style.transform = 'translateX(320px)';
-            document.querySelector('.main-disabled').style.width = '100%';
-            document.querySelector('html').style.overflow = 'hidden';
+    });
+    
+    $('.main-disabled').on("click", function(event){
+        if($(this).hasClass('active')==true){
+            $(this).removeClass('active');
+            mobileMenu[0].classList.remove('active');
+            burgerIcon[0].classList.remove('active');
+            htmlTag[0].classList.remove('disabled');
         }
-        else{
-            $('.burger').removeClass('active');
-            document.querySelector('.mobile-menu-header').style.transform = 'translateX(-320px)';
-            document.querySelector('.main-disabled').style.width = '0';
-            document.querySelector('html').style.overflow = '';
+    });
+
+    //mobile submenu
+
+    const submenuMobile = document.getElementsByClassName('mobile-menu-list-li');
+    submenuMobile.forEach(function(el) {el.addEventListener('click', function (){
+        const data = this.dataset.name;
+        if(document.querySelector(`.mobile-header-submenu-case.active`) !==null){
+            document.querySelector(`.mobile-header-submenu-case.active`).classList.remove('active');
+        }
+        document.querySelector(`.mobile-header-submenu-case[data-name="${data}"]`).classList.add('active');
+        //document.querySelector('.mobile-menu-list').classList.add('disabled');
+    })})
+
+        //button back for mobile submenu
+    const backMobileSubmenu = document.getElementsByClassName('mobile-menu-back-button');
+    backMobileSubmenu.forEach(function(el) {el.addEventListener('click', function (){
+        const data = this.dataset.name;
+        document.querySelector(`.mobile-header-submenu-case[data-name="${data}"]`).classList.remove('active');
+    })})
+
+    //scroll for mobile fixed menu
+
+    const headerMobile = document.getElementsByClassName('header');
+    $(window).scroll(function(){
+        if ( $(this).scrollTop() > 100 && headerMobile[0].classList.contains("fixed-mobile")==false ){
+            headerMobile[0].classList.add("fixed-mobile");
+        } else if($(this).scrollTop() <= 100 && headerMobile[0].classList.contains("fixed-mobile")) {
+            headerMobile[0].classList.remove("fixed-mobile");
         }
     });
 
