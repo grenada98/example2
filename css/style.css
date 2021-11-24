@@ -351,6 +351,7 @@ body {
   -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
+  fill: #ffbe48;
 }
 
 .enter-link {
@@ -474,10 +475,12 @@ body {
   -webkit-transition: 0.4s;
   -o-transition: 0.4s;
   transition: 0.4s;
+  z-index: 99;
 }
 
 .header-categories:hover {
   background: #FFFFFF;
+  z-index: 999998;
 }
 
 .icon-select-categories {
@@ -512,23 +515,27 @@ body {
   transition: 0.4s;
 }
 
-.header-categories:hover .header-submenu-list {
+.header-categories:hover .out-header-submenu-list {
   display: block;
 }
 
-.header-submenu-list {
+.out-header-submenu-list {
   display: none;
   padding-top: 20px;
+  position: absolute;
+  left: -1px;
+  top: 70%;
+  width: calc(100% + 2px);
+  border-radius: 0 0 10px 10px;
+}
+
+.header-submenu-list {
+  width: 100%;
+  list-style: none;
+  background-color: white;
   padding-right: 10px;
   padding-bottom: 9px;
   padding-left: 10px;
-  list-style: none;
-  background-color: white;
-  position: absolute;
-  left: 0;
-  top: 70%;
-  width: 100%;
-  border-radius: 0 0 10px 10px;
 }
 
 .icon-catalog-div {
@@ -632,6 +639,7 @@ body {
   display: -ms-flexbox;
   display: flex;
   max-width: 50%;
+  width: 100%;
   position: relative;
 }
 
@@ -2947,6 +2955,10 @@ body {
   .equal-like-basket {
     width: 266px;
   }
+
+  .container-in-2-background-img-2 {
+    left: 15%;
+  }
 }
 
 @media (max-width: 1000px) {
@@ -3005,7 +3017,8 @@ body {
   }
 
   .input-search {
-    min-width: 335px;
+    width: 50%;
+    min-width: 210px;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-right: 10px;
@@ -3040,7 +3053,11 @@ body {
     margin-left: 0px;
     -webkit-box-shadow: none;
             box-shadow: none;
-    stroke: black;
+    fill: black;
+  }
+
+  .container-in-2-background-img-2 {
+    left: 5%;
   }
 }
 
@@ -3141,6 +3158,10 @@ body {
 
 @media (max-width: 650px) {
   .equal-like-basket {
+    width: 30%;
+  }
+
+  .equal-like-basket {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
@@ -3228,6 +3249,18 @@ body {
 }
 
 @media (max-width: 411px) {
+  .mobile-catalog-div {
+    padding: 0 5px;
+  }
+
+  .input-search {
+    padding-right: 5px;
+  }
+
+  .equal-like-basket-in:nth-child(3) {
+    padding-left: 0;
+  }
+
   .list-of-cards {
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
@@ -3298,6 +3331,10 @@ body {
 }
 
 @media (max-width: 360px) {
+  .input-search {
+    min-width: 160px;
+  }
+
   .footer {
     max-width: 320px;
     -webkit-box-align: center;
